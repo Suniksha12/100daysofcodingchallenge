@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+		<Metadata>
+			<Identity Language="en-US" Id="blackbox" Version="1.1.62" Publisher="Blackboxapp" />
+			<DisplayName>Blackbox AI Code Generation, Code Chat, Code Search</DisplayName>
+			<Description xml:space="preserve">BLACKBOX AI is an AI coding assistant that helps developers  by providing real-time code completion, documentation, and debugging suggestions. BLACKBOX AI is also integrated with a variety of developer tools, making it easy to use within your existing workflow.</Description>
+			<Tags>keybindings,code-recommendation,autocomplete,javascript,python,typescript,php,ruby,java,go,golang,bash,kotlin,html,css,ocaml,perl,rust,julia,lua,haskell,c,cpp,c++,csharp,c#,react,swift,objective-c,objectivec,ai,method completion,intellicode,intellisense,snippets,kite,nodejs,node,node.js,jupyter,domination</Tags>
+			<Categories>Other,Programming Languages,Snippets,Machine Learning,Education</Categories>
+			<GalleryFlags>Public</GalleryFlags>
+			
+			<Properties>
+				<Property Id="Microsoft.VisualStudio.Code.Engine" Value="^1.34.0" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionKind" Value="workspace" />
+				<Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="" />
+				
+				
+				
+				<Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://www.useblackbox.io/" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Learn" Value="https://www.useblackbox.io/" />
+				<Property Id="Microsoft.VisualStudio.Services.Branding.Color" Value="#100f11" />
+				<Property Id="Microsoft.VisualStudio.Services.Branding.Theme" Value="dark" />
+				<Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+				
+				
+			</Properties>
+			<License>extension/LICENSE.txt</License>
+			<Icon>extension/icon.png</Icon>
+		</Metadata>
+		<Installation>
+			<InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+		</Installation>
+		<Dependencies/>
+		<Assets>
+			<Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+			<Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/README.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Content.License" Path="extension/LICENSE.txt" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/icon.png" Addressable="true" />
+		</Assets>
+	</PackageManifest>

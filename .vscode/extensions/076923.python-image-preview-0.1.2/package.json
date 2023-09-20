@@ -1,0 +1,88 @@
+{
+	"name": "python-image-preview",
+	"displayName": "Python Image Preview",
+	"description": "Numpy, Pillow, OpenCV, Matplotlib, Plotly, ImageIO, Scikit Image, Tensorflow, Pytorch Image Preview",
+	"version": "0.1.2",
+	"publisher": "076923",
+	"engines": {
+		"vscode": "^1.57.0"
+	},
+	"icon": "images/icon.png",
+	"categories": [
+		"Debuggers",
+		"Data Science",
+		"Machine Learning",
+		"Visualization"
+	],
+	"keywords": [
+		"python",
+		"image",
+		"numpy",
+		"pillow",
+		"opencv",
+		"matplotlib",
+		"pyplot",
+		"figure",
+		"imageio",
+		"scikit-image",
+		"skimage",
+		"tensorflow",
+		"pytorch",
+		"preview"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/076923/python-image-preview"
+	},
+	"activationEvents": [
+		"onCommand:extension.pythonImagePreview",
+		"onDebugResolve:python"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.pythonImagePreview",
+				"title": "Python Image Preview",
+				"enablement": "inDebugMode"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"test-compile": "tsc -p ./",
+		"test-watch": "tsc -watch -p ./",
+		"pretest": "npm run test-compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.57.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2",
+		"ts-loader": "^9.2.2",
+		"webpack": "^5.38.1",
+		"webpack-cli": "^4.7.0"
+	},
+	"__metadata": {
+		"id": "69bf6fce-bf1a-4e07-a3c1-5610f40de093",
+		"publisherId": "34f44968-cbb1-42f1-a915-f31a099cd057",
+		"publisherDisplayName": "윤대희",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1691671712666,
+		"preRelease": false
+	}
+}

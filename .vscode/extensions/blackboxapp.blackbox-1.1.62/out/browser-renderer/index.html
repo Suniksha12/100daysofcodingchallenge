@@ -1,0 +1,169 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/codicon.css" />
+    <style>
+      body {
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .header {
+        background-color: #fff;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px;
+      }
+
+      .controls {
+        display: flex;
+        gap: 10px;
+        padding: 0 10 0 10;
+      }
+
+      .address-bar {
+        display: flex;
+        align-items: center;
+        background-color: #F1F3F4;
+        border-radius: 30px;
+        padding: 1px;
+        width: 100%;
+      }
+
+      .address-lock {
+        padding: 0 10px;
+      }
+
+      .address-lock i {
+        color: #555;
+        font-size: 20px;
+      }
+
+      .url-input {
+        flex: 1;
+        padding: 5px;
+        border: none;
+        border-radius: 30px;
+        color: #202124;
+        font-size: 14px;
+        font-family: "Segoe UI", "Roboto", sans-serif;
+        background-color: #F1F3F4;
+      }
+
+      .icon {
+        background-color: transparent;
+        border: none;
+        color: #555;
+        cursor: pointer;
+      }
+
+      .icon i {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .icon:hover {
+        background-color: #E8EAED;
+      }
+
+      button {
+        border: none;
+        padding: 3px;
+        text-align: center;
+        background: none;
+        border-radius: 100%;
+      }
+
+      input:focus {
+        outline: none;
+      }
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="control-bar">
+      <nav class="controls">
+        <button id="btn-back" title="Back" class="back-button icon"><i class="codicon codicon-arrow-left"></i></button>
+
+        <button id="btn-forward" title="Forward" class="forward-button icon"><i class="codicon codicon-arrow-right"></i></button>
+
+        <button id="btn-reload" title="Reload" class="reload-button icon"><i class="codicon codicon-refresh"></i></button>
+      </nav>
+
+      <div class="address-bar">
+        <div class="address-lock"><i class="codicon codicon-lock"></i></div>
+        <input id="input-bar" class="url-input" type="text" />
+      </div>
+
+      <nav class="controls" style="-webkit-app-region: drag">
+        <button style="-webkit-app-region: no-drag" id="open-browser" title="Open in browser" class="open-external-button icon"><i class="codicon codicon-link-external"></i></button>
+        <button style="-webkit-app-region: no-drag" id="hide-browser" title="Hide Browser" class="open-external-button icon"><i class="codicon codicon-fold"></i></button>
+      </nav>
+    </header>
+    <header class="header hide" id="hidden-bar" style="width: 100%; background: black; height: 30px;-webkit-app-region: drag; -webkit-user-select: none;">
+      <div style="color: #eeebeb; margin-left: 41px;">
+        Blackbox Browser
+      </div>
+      <div style="width: 50%; float: right; text-align: end; margin-right: 30px;">
+        <button id="show-btn" style="color: white; background: #3273dc; width: 120px; border-radius: 9px; height: 30px; -webkit-app-region: no-drag">Open Browser</button>
+      </div>
+    </header>
+    <script type="module">
+      const userInputField = document.getElementById('input-bar');
+      const backButton = document.getElementById('btn-back');
+      const forwardButton = document.getElementById('btn-forward');
+      const reloadButton = document.getElementById('btn-reload');
+      const openBrowserButton = document.getElementById('open-browser');
+      const hideBrowser = document.getElementById('hide-browser');
+      const hiddenBar = document.getElementById('hidden-bar');
+      const controlBar = document.getElementById('control-bar');
+      const showBtn = document.getElementById('show-btn');
+
+      userInputField.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+          const userInput = userInputField.value;
+          window.electron.ipcRendererSend('user-input', userInput);
+        }
+      });
+
+      backButton.addEventListener('click', event => {
+        window.electron.ipcRendererSend('back-button');
+      });
+
+      forwardButton.addEventListener('click', event => {
+        window.electron.ipcRendererSend('forward-button');
+      });
+
+      reloadButton.addEventListener('click', event => {
+        window.electron.ipcRendererSend('reload-button');
+      });
+
+      openBrowserButton.addEventListener('click', event => {
+        const currentUrl = userInputField.value;
+        window.electron.ipcRendererSend('open-browser-button', currentUrl);
+      });
+
+      
+      hideBrowser.addEventListener('click', event => {
+        window.electron.ipcRendererSend('hide-browser-button');
+        hiddenBar.classList.remove('hide');
+        controlBar.classList.add('hide');
+      });
+
+      showBtn.addEventListener('click', event => {
+        window.electron.ipcRendererSend('show-browser-button');
+        hiddenBar.classList.add('hide');
+        controlBar.classList.remove('hide');
+      });
+
+      window.electron.changedPageListener((event, data) => {
+        userInputField.value = data;
+      });
+    </script>
+  </body>
+</html>

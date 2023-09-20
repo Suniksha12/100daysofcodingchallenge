@@ -1,0 +1,394 @@
+{
+	"name": "blackbox",
+	"displayName": "Blackbox AI Code Generation, Code Chat, Code Search",
+	"description": "BLACKBOX AI is an AI coding assistant that helps developers  by providing real-time code completion, documentation, and debugging suggestions. BLACKBOX AI is also integrated with a variety of developer tools, making it easy to use within your existing workflow.",
+	"version": "1.1.62",
+	"publisher": "Blackboxapp",
+	"icon": "icon.png",
+	"homepage": "https://www.useblackbox.io/",
+	"keywords": [
+		"keybindings",
+		"code-recommendation",
+		"autocomplete",
+		"javascript",
+		"python",
+		"typescript",
+		"php",
+		"ruby",
+		"java",
+		"go",
+		"golang",
+		"bash",
+		"kotlin",
+		"html",
+		"css",
+		"ocaml",
+		"perl",
+		"rust",
+		"julia",
+		"lua",
+		"haskell",
+		"c",
+		"cpp",
+		"c++",
+		"csharp",
+		"c#",
+		"react",
+		"swift",
+		"objective-c",
+		"objectivec",
+		"ai",
+		"method completion",
+		"intellicode",
+		"intellisense",
+		"snippets",
+		"kite",
+		"nodejs",
+		"node",
+		"node.js",
+		"jupyter",
+		"domination"
+	],
+	"engines": {
+		"vscode": "^1.34.0"
+	},
+	"bugs": {
+		"url": "https://www.useblackbox.io/"
+	},
+	"author": {
+		"name": "Blackbox",
+		"url": "https://www.useblackbox.io/"
+	},
+	"contributors": [],
+	"license": "",
+	"galleryBanner": {
+		"color": "#100f11",
+		"theme": "dark"
+	},
+	"categories": [
+		"Other",
+		"Programming Languages",
+		"Snippets",
+		"Machine Learning",
+		"Education"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "blackbox",
+					"title": "BlackBox",
+					"icon": "$(bold)"
+				}
+			],
+			"panel": [
+				{
+					"id": "blackbox-terminal",
+					"title": "SEARCH TERMINAL OUTPUT",
+					"icon": ""
+				}
+			]
+		},
+		"views": {
+			"blackbox": [
+				{
+					"type": "webview",
+					"id": "blackbox-onboarding",
+					"name": "Space",
+					"contextualTitle": "BlackBox",
+					"icon": "$(bold)",
+					"visibility": "visible"
+				}
+			],
+			"blackbox-terminal": [
+				{
+					"type": "webview",
+					"id": "terminal.search.view",
+					"name": "",
+					"contextualTitle": "BlackBox",
+					"when": "blackbox.newInstallation"
+				}
+			]
+		},
+		"configuration": {},
+		"commands": [
+			{
+				"command": "extension.disableBlackBoxAutoComplete",
+				"title": "Disable Blackbox Autocomplete"
+			},
+			{
+				"command": "extension.enableBlackBoxAutoComplete",
+				"title": "Enable Blackbox Autocomplete"
+			},
+			{
+				"command": "extension.clearBlackboxAutocomplete",
+				"title": "Clear Blackbox Autocomplete Lines"
+			},
+			{
+				"command": "extension.saveText",
+				"title": "Save as Blackbox Snippet"
+			},
+			{
+				"command": "extension.openChat",
+				"title": "Open Blackbox Chat"
+			},
+			{
+				"command": "extension.getSuggest",
+				"title": "Blackbox Generate Code"
+			},
+			{
+				"command": "extension.explainCode",
+				"title": "Blackbox Explain Code"
+			},
+			{
+				"command": "extension.generateReadme",
+				"title": "Blackbox Generate README"
+			},
+			{
+				"command": "blackbox.historySearch",
+				"title": "Blackbox Saved Snippets",
+				"category": "blackbox"
+			},
+			{
+				"command": "blackbox.showChat",
+				"title": "Blackbox AI Chat"
+			},
+			{
+				"command": "blackbox.showDiff",
+				"title": "Blackbox Diff view"
+			},
+			{
+				"command": "blackbox.cleanDiff",
+				"title": "Blackbox Clean Diff History"
+			},
+			{
+				"command": "blackbox.readMe",
+				"title": "Create README.md"
+			},
+			{
+				"command": "blackbox.commitMsg",
+				"title": "BlackboxAI Commit",
+				"icon": "$(bold)"
+			},
+			{
+				"command": "blackbox.welcome",
+				"title": "Help & Getting Started",
+				"category": "Blackbox",
+				"group": "Blackbox",
+				"icon": "$(bold)"
+			},
+			{
+				"command": "blackbox.comment.chat",
+				"title": "Inline Chat",
+				"category": "Blackbox"
+			},
+			{
+				"command": "blackbox.comment.add",
+				"title": "Ask Blackbox",
+				"category": "Blackbox"
+			},
+			{
+				"command": "blackbox.openBrowser",
+				"title": "Open Blackbox Browser",
+				"category": "Blackbox",
+				"group": "Blackbox",
+				"icon": "$(bold)"
+			},
+			{
+				"command": "blackbox.terminal.search",
+				"title": "Terminal Search",
+				"category": "Blackbox",
+				"group": "Blackbox",
+				"icon": "$(bold)"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.saveText",
+				"key": "ctrl+alt+l",
+				"mac": "shift+cmd+i"
+			},
+			{
+				"command": "extension.acceptSuggestion",
+				"key": "tab",
+				"mac": "tab",
+				"when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "extension.saveText",
+					"group": "Blackbox"
+				},
+				{
+					"command": "extension.getSuggest",
+					"group": "Blackbox"
+				},
+				{
+					"command": "extension.explainCode",
+					"group": "Blackbox"
+				},
+				{
+					"command": "extension.openChat",
+					"group": "Blackbox"
+				},
+				{
+					"command": "extension.generateReadme",
+					"group": "Blackbox"
+				}
+			],
+			"scm/title": [
+				{
+					"command": "blackbox.commitMsg",
+					"when": "scmProvider == git",
+					"group": "navigation",
+					"title": "Commit Prefill"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "blackbox.comment.add",
+					"when": "false"
+				},
+				{
+					"command": "blackbox.terminal.search",
+					"when": "blackbox.newInstallation"
+				}
+			],
+			"comments/commentThread/context": [
+				{
+					"command": "blackbox.comment.add",
+					"group": "inline"
+				}
+			]
+		},
+		"walkthroughs": [
+			{
+				"id": "blackbox.welcomeStep",
+				"title": "Getting Started with BLACKBOX AI",
+				"description": "Write and Review Code with the help of our AI-powered Code Autocomplete, Code Chat & Much More Features to Increase Developers' Productivity",
+				"steps": [
+					{
+						"id": "openCodeChat",
+						"title": "BLACKBOX Code Chat",
+						"description": "This is a walkthrough for using BLACKBOX AI Code Chat.\nTo get answers to your coding questions:\n\n1. Open the BLACKBOX Code Chat.\n2. Ask your coding question.\n3. Get answers and suggestions in real-time.",
+						"media": {
+							"markdown": "walkthroughs/BLACKBOXCodeChat.md"
+						}
+					},
+					{
+						"id": "openCodeAutocomplete",
+						"title": "BLACKBOX Code Autocomplete",
+						"description": "This is a walkthrough for using BLACKBOX AI Code Autocomplete.\nTo get code suggestions as you type:\n\n1. Write a line of code.\n2. Press Enter and you will see the suggestion.\n3. Press Tab to accept the suggestion",
+						"media": {
+							"markdown": "walkthroughs/BLACKBOXCodeAutocomplete.md"
+						}
+					},
+					{
+						"id": "generateAICode",
+						"title": "BLACKBOX AI Generate Code",
+						"description": "This is a walkthrough for generating code with BLACKBOX AI.\nTo generate code using AI:\n\n1. Open a file with code.\n2. Right click and press Blackbox Generate Code\n3. Blackbox will start writing the lines of code",
+						"media": {
+							"markdown": "walkthroughs/BLACKBOXAIGenerateCode.md"
+						}
+					},
+					{
+						"id": "commitAI",
+						"title": "BLACKBOX AI Commit",
+						"description": "This is a walkthrough for using AI to commit code in BLACKBOX.\nTo commit your code using AI:\n\n1. Click on the Sidebar Source Control.\n2. Press the B icon.\n3. Blackbox will generate the commit message.",
+						"media": {
+							"markdown": "walkthroughs/BLACKBOXAICOMMIT.md"
+						}
+					},
+					{
+						"id": "openViewDiff",
+						"title": "BLACKBOX View Diff",
+						"description": "This is a walkthrough for viewing diffs in BLACKBOX.\nTo see the differences in your code:\n\n1. Open the file you want to compare.\n2. Click on the \"View Diff\" button in the top-right corner.",
+						"media": {
+							"markdown": "walkthroughs/BLACKBOXViewDiff.md"
+						}
+					},
+					{
+						"id": "generateAIReadme",
+						"title": "BLACKBOX AI README",
+						"description": "This is a walkthrough for using BLACKBOX AI to generate READMEs.\nTo generate a README using AI:\n\n1. Open a project directory.\n2. Invoke the \"Generate AI README\" command.\n3. Customize and refine the generated README.",
+						"media": {
+							"markdown": "walkthroughs/BLACKBOXAIREADME.md"
+						}
+					},
+					{
+						"id": "scheduleOnboarding",
+						"title": "BLACKBOX AI Schedule Onboarding",
+						"description": "This is a walkthrough for scheduling your BLACKBOX AI onboarding.\nTo schedule your onboarding:\n\n1. Open your BLACKBOX settings.\n2. Navigate to the Onboarding section.\n3. Select the time that suits you for the AI-guided onboarding session.",
+						"media": {
+							"markdown": "walkthroughs/BLACKBOXAIScheduleOnboarding.md"
+						}
+					}
+				]
+			}
+		]
+	},
+	"scripts": {
+		"lint": "eslint . --ext .ts,.tsx",
+		"watch": "tsc -watch -p ./",
+		"download-api": "vscode-dts dev",
+		"postdownload-api": "vscode-dts main",
+		"postinstall": "npx vscode-dts dev && (cd out/browser-renderer/ && npm install)",
+		"test-compile": "tsc -p ./",
+		"build": "vsce package -o ./out-vsix",
+		"test": "jest"
+	},
+	"devDependencies": {
+		"@types/jest": "^27.4.1",
+		"@types/node": "^14.15.0",
+		"@types/node-fetch": "^2.5.10",
+		"@typescript-eslint/eslint-plugin": "^4.16.0",
+		"@typescript-eslint/parser": "^4.16.0",
+		"bufferutil": "^4.0.3",
+		"esbuild": "^0.12.15",
+		"eslint": "^7.21.0",
+		"jest": "^27.5",
+		"node-loader": "^2.0.0",
+		"ts-jest": "^27.1.4",
+		"ts-loader": "^9.2.3",
+		"typescript": "^4.2.2",
+		"utf-8-validate": "^5.0.5",
+		"vscode": "1.1.37",
+		"vscode-dts": "^0.3.3",
+		"webpack": "5.76.0",
+		"webpack-cli": "^4.7.2"
+	},
+	"dependencies": {
+		"@types/jsdom": "^16.2.12",
+		"@vscode/vscode-languagedetection": "^1.0.22",
+		"jsdom": "^16.6.0",
+		"linkedom": "^0.11.1",
+		"node-fetch": "^2.6.7",
+		"open": "^8.4.0",
+		"socket.io-client": "^4.5.3",
+		"typescript-language-server": "^0.5.4",
+		"uuid": "^9.0.0",
+		"vsce": "^1.96.1",
+		"ws": "^8.13.0"
+	},
+	"jest": {
+		"preset": "ts-jest",
+		"testEnvironment": "node"
+	},
+	"__metadata": {
+		"id": "29f905db-7b5e-4c4e-9295-02bf72a065d0",
+		"publisherId": "748d9dfd-c7c4-4ce2-b19d-7e4df254c5e8",
+		"publisherDisplayName": "BLACKBOX AI",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1695204028012,
+		"preRelease": false
+	}
+}

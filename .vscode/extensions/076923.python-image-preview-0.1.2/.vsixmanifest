@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Language="en-US" Id="python-image-preview" Version="0.1.2" Publisher="076923"/>
+    <DisplayName>Python Image Preview</DisplayName>
+    <Description xml:space="preserve">Numpy, Pillow, OpenCV, Matplotlib, Plotly, ImageIO, Scikit Image, Tensorflow, Pytorch Image Preview</Description>
+    <Tags>python,image,numpy,pillow,opencv,matplotlib,pyplot,figure,imageio,scikit-image,skimage,tensorflow,pytorch,preview</Tags>
+    <Categories>Debuggers,Data Science,Machine Learning,Visualization</Categories>
+    <GalleryFlags>Public</GalleryFlags>
+    <Badges></Badges>
+    <Properties>
+      <Property Id="Microsoft.VisualStudio.Code.Engine" Value="^1.57.0" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionKind" Value="workspace" />
+      <Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="" />
+      
+        <Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://github.com/076923/python-image-preview" />
+        <Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://github.com/076923/python-image-preview" />
+        
+          <Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://github.com/076923/python-image-preview" />
+        
+      
+      
+      
+      
+      
+      <Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+      
+      
+      
+    </Properties>
+    
+    <Icon>extension/images/icon.png</Icon>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+  </Installation>
+  <Dependencies/>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+    <Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/README.md" Addressable="true" /><Asset Type="Microsoft.VisualStudio.Services.Content.Changelog" Path="extension/CHANGELOG.md" Addressable="true" /><Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/images/icon.png" Addressable="true" />
+  </Assets>
+</PackageManifest>
