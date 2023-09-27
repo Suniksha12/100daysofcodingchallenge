@@ -5,6 +5,9 @@
  */
 
 // @lc code=start
+
+import java.util.Stack;
+
 class Solution {
     public boolean isValid(String s) {
         //creating an empty stack for proper maintaineance of order
