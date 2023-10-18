@@ -1,0 +1,22 @@
+/*
+ * @lc app=leetcode id=628 lang=java
+ *
+ * [628] Maximum Product of Three Numbers
+ */
+
+// @lc code=start
+
+import java.util.Arrays;
+
+class Solution {
+    public int maximumProduct(int[] nums) {
+        Arrays.sort(nums);
+        int case1 = nums[0]*nums[1]*nums[nums.length-1];
+        int case2 = nums[nums.length-1]*nums[nums.length-2]*nums[nums.length-3];
+
+        int maxProduct = Integer.max(case1, case2);
+        return maxProduct;
+    }
+}
+// @lc code=end
+
