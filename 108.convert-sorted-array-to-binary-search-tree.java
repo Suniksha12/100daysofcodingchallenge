@@ -27,6 +27,12 @@ class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
       return CreateBST(nums , 0 ,nums.length-1); 
     }   
+    /**
+     * @param nums
+     * @param l
+     * @param r
+     * @return
+     */
     private TreeNode CreateBST(int nums[],int l , int r){
         if(l>r){ //base condition or recursion stoping condition
         return null;
