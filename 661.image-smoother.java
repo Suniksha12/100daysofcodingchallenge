@@ -7,60 +7,29 @@
 // @lc code=start
 class Solution {
     public int[][] imageSmoother(int[][] img) {
+        int res[][] = new int[img.length][img[0].length];
+        for(int i =0;i<img.length;i++) {
+            for(int j =0;j<img[0].length;j++) {
+                res[i][j] = smoothen(img,i,j);
+            }
+        }
+        return res;
+    }
+    int smoothen(int[][] img, int x , int y) {
         int m = img.length;
         int n = img[0].length;
-        int[][] ans = new int[m][n];
-
-        for(int i=0;i<m; i++){
-            for(int j =0; j<n; j++){
-                int tempSum =0;
-                int count =0;
-                if(i>0 || i<m-1){
-                    if(i>0){
-                        tempSum += img[i-1][j];
-                        count++;
-                    }
-                    if(i<m-1){
-                        tempSum += img[i+1][j];
-                        count++;
-                    }
-                }
-                if(j>0 || j<n-1){
-                    if(j>0){
-                        tempSum += img[i][j-1];
-                        count++;
-                    }
-                    if(j<n-1){
-                        tempSum += img[i][j+1];
-                        count++;
-                    }
-                }
-                if(i>0&& j>0){
-                    tempSum +=img[i-1][j-1];
-                    count++;
-                }
-                if(i<m-1&& j>0){
-                    tempSum +=img[i+1][j-1];
-                    count++;
-                }
-                if(j<n-1&& i>0){
-                    tempSum +=img[i-1][j+1];
-                    count++;
-                }
-                if(j<n-1&& i<m-1){
-                    tempSum +=img[i+1][j+1];
-                    count++;
-                }
+        int sum=0;
+        int count =0;
+        for(int i = -1;i<=1;i++) {
+            for(int j = -1; j <=1;j++) {
+                int nx = x + i;
+                int ny = y + j;
+                if(nx < 0 || nx >= m || ny < 0  || ny >= n) continue;
+                sum += img[nx][ny];
                 count++;
-                tempSum+= img[i][j];
-               // System.out.print( " "+ count + " " + tempSum + ",");
-                ans[i][j] = tempSum/count;
-                
             }
-           // System.out.println();
         }
-        return ans;
-        
+        return sum/count;
     }
 }
 // @lc code=end
